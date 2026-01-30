@@ -16,8 +16,5 @@ if not args.list or args.target is None:
     arr=[1,3,5,7,9]; print(bsearch(arr,5)); sys.exit(0)
 arr=[int(x) for x in args.list.split(args.sep) if x.strip()]
  arr.sort()
- arr.sort()
  idx=bsearch(arr,args.target)
- idx=bsearch(arr,args.target)
-print(f"{args.target} -> index {idx}" if idx!=-1 else f"{args.target} not found")
 print(f"{args.target} -> index {idx}" if idx!=-1 else f"{args.target} not found")
