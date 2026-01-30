@@ -17,8 +17,6 @@ def binary_search_iterative(arr: List[int], target: int) -> Optional[int]:
         else:
             hi = mid - 1
     return None
-
-
 def binary_search_recursive(arr: List[int], target: int, lo: int = 0, hi: Optional[int] = None) -> Optional[int]:
     """Recursive binary search wrapper."""
     if hi is None:
@@ -31,13 +29,9 @@ def binary_search_recursive(arr: List[int], target: int, lo: int = 0, hi: Option
     if arr[mid] < target:
         return binary_search_recursive(arr, target, mid + 1, hi)
     return binary_search_recursive(arr, target, lo, mid - 1)
-
-
 def parse_list(s: str, sep: str) -> List[int]:
     parts = [p for p in (s.split(sep) if sep != ',' else s.split(',')) if p.strip() != ""]
     return [int(x) for x in parts]
-
-
 def main():
     parser = argparse.ArgumentParser(description="Binary search example")
     parser.add_argument("--list", "-l", type=str, help="Sorted list of integers (comma or custom-separated). Example: '1,3,5' or '1 3 5'")
@@ -53,7 +47,6 @@ def main():
             idx = binary_search_iterative(demo, tgt)
             print(f"Searching {tgt} in {demo} -> index: {idx}")
         return
-
     arr = parse_list(args.list, args.sep)
     arr.sort() 
     target = args.target
@@ -62,12 +55,9 @@ def main():
         idx = binary_search_iterative(arr, target)
     else:
         idx = binary_search_recursive(arr, target)
-
     if idx is None:
         print(f"{target} not found in {arr}")
     else:
         print(f"{target} found at index {idx} in {arr}")
-
-
 if __name__ == "__main__":
     main()
